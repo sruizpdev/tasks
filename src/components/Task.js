@@ -9,10 +9,9 @@ const Task = ({ task, setTask, deleteTask }) => {
   const [isChecked, setChecked] = useState(false);
 
   const handleCheckbox = () => {
-    setSelected(true);
+    setChecked(true);
     setTimeout(() => {
       deleteTask(id);
-      setSelected(false);
     }, 1000);
   };
 
@@ -22,7 +21,7 @@ const Task = ({ task, setTask, deleteTask }) => {
         <Checkbox
           style={styles.checkbox}
           value={isChecked}
-          onValueChange={setChecked}
+          onValueChange={handleCheckbox}
         />
         <Text style={styles.taskText}> {taskName}</Text>
       </View>
