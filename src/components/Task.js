@@ -5,7 +5,7 @@ import { Text, StyleSheet, View, Button, Pressable } from "react-native";
 
 const Task = ({ task, setTask, deleteTask }) => {
   const { id, taskName } = task;
-  
+
   const [isChecked, setChecked] = useState(false);
 
   const handleCheckbox = () => {

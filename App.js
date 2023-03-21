@@ -1,12 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {
-  SafeAreaView,
-  StyleSheet,
-  Text,
-  View,
-  Pressable,
-  ScrollView,
-} from "react-native";
+import { SafeAreaView, StyleSheet, Text, View, ScrollView } from "react-native";
 import Form from "./src/components/Form";
 import Tasks from "./src/components/Tasks";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -14,7 +7,6 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 const App = () => {
   const [task, setTask] = useState({});
   const [tasks, setTasks] = useState([]);
-  const [modalVisible, setModalVisible] = useState(false);
 
   useEffect(() => {
     const getData = async () => {
@@ -49,19 +41,9 @@ const App = () => {
     <SafeAreaView>
       <View style={styles.header}>
         <Text style={styles.title}>Tareas</Text>
-        <Pressable onPress={() => setModalVisible(true)}>
-          <Text>nueva tarea</Text>
-        </Pressable>
       </View>
       <View>
-        <Form
-          task={task}
-          setTask={setTask}
-          tasks={tasks}
-          setTasks={setTasks}
-          modalVisible={modalVisible}
-          setModalVisible={setModalVisible}
-        />
+        <Form task={task} setTask={setTask} tasks={tasks} setTasks={setTasks} />
       </View>
       <View style={styles.tasksContainer}>
         <ScrollView>
@@ -76,10 +58,8 @@ const styles = StyleSheet.create({
   container: {},
   header: {
     marginVertical: 30,
-
-    backgroundColor: "green",
   },
-  tasksContainer: { backgroundColor: "yellow" },
+  tasksContainer: {},
   footer: {
     backgroundColor: "red",
   },

@@ -13,14 +13,7 @@ import {
 import { generateId } from "../helpers";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-const Form = ({
-  task,
-  setTask,
-  tasks,
-  setTasks,
-  modalVisible,
-  setModalVisible,
-}) => {
+const Form = ({ task, setTask, tasks, setTasks }) => {
   const [taskName, setTaskName] = useState("");
   const [error, setError] = useState(false);
 
@@ -65,24 +58,21 @@ const Form = ({
       storeData(tasks);
     }
     setTaskName("");
-    setModalVisible(false);
   };
   return (
-    <Modal animationType="slide" visible={modalVisible}>
-      <SafeAreaView>
-        <View style={styles.container}>
-          <TextInput
-            style={styles.input}
-            placeholder="Introduce una nueva tarea"
-            value={taskName}
-            onChangeText={setTaskName}
-          />
-          <Pressable onPress={handleTask} style={styles.btnNewTask}>
-            <Text style={styles.btnNewTaskText}>{task.id ? "-" : "+"}</Text>
-          </Pressable>
-        </View>
-      </SafeAreaView>
-    </Modal>
+    <SafeAreaView>
+      <View style={styles.container}>
+        <TextInput
+          style={styles.input}
+          placeholder="Introduce una nueva tarea"
+          value={taskName}
+          onChangeText={setTaskName}
+        />
+        <Pressable onPress={handleTask} style={styles.btnNewTask}>
+          <Text style={styles.btnNewTaskText}>{task.id ? "-" : "+"}</Text>
+        </Pressable>
+      </View>
+    </SafeAreaView>
   );
 };
 
