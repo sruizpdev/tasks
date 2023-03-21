@@ -1,10 +1,12 @@
 import React, { useState } from "react";
+import Checkbox from "expo-checkbox";
 
 import { Text, StyleSheet, View, Button, Pressable } from "react-native";
 
 const Task = ({ task, setTask, deleteTask }) => {
   const { id, taskName } = task;
-  const [selected, setSelected] = useState(false);
+  
+  const [isChecked, setChecked] = useState(false);
 
   const handleCheckbox = () => {
     setSelected(true);
@@ -17,6 +19,11 @@ const Task = ({ task, setTask, deleteTask }) => {
   return (
     <View style={styles.container}>
       <View>
+        <Checkbox
+          style={styles.checkbox}
+          value={isChecked}
+          onValueChange={setChecked}
+        />
         <Text style={styles.taskText}> {taskName}</Text>
       </View>
 
