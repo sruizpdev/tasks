@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Checkbox from "expo-checkbox";
+import { AntDesign } from "@expo/vector-icons";
 
 import { Text, StyleSheet, View, Pressable } from "react-native";
 
@@ -24,12 +25,14 @@ const Task = ({ task, setTask, deleteTask }) => {
         />
       </View>
       <View style={styles.taskContainer}>
-        <Text style={styles.taskText}>{taskName}</Text>
+        <Text style={!isChecked ? styles.taskText : styles.taskTextThrough}>
+          {taskName}
+        </Text>
       </View>
 
       <View style={styles.btnContainer}>
         <Pressable onPress={() => setTask(task)} style={styles.btnEdit}>
-          <Text style={styles.btnText}>Editar</Text>
+          <AntDesign name="edit" size={20} color="green" />
         </Pressable>
       </View>
     </View>
@@ -54,6 +57,10 @@ const styles = StyleSheet.create({
   },
   taskText: {
     fontSize: 16,
+  },
+  taskTextThrough: {
+    fontSize: 16,
+    textDecorationLine: "line-through",
   },
   btnContainer: {},
 });
