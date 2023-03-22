@@ -3,10 +3,7 @@ import {
   StyleSheet,
   View,
   Text,
-  Alert,
-  Button,
   SafeAreaView,
-  Modal,
   TextInput,
   Pressable,
 } from "react-native";
@@ -60,19 +57,17 @@ const Form = ({ task, setTask, tasks, setTasks }) => {
     setTaskName("");
   };
   return (
-    <SafeAreaView>
-      <View style={styles.container}>
-        <TextInput
-          style={styles.input}
-          placeholder="Introduce una nueva tarea"
-          value={taskName}
-          onChangeText={setTaskName}
-        />
-        <Pressable onPress={handleTask} style={styles.btnNewTask}>
-          <Text style={styles.btnNewTaskText}>{task.id ? "-" : "+"}</Text>
-        </Pressable>
-      </View>
-    </SafeAreaView>
+    <View style={styles.container}>
+      <TextInput
+        style={styles.input}
+        placeholder="Introduce una nueva tarea"
+        value={taskName}
+        onChangeText={setTaskName}
+      />
+      <Pressable onPress={handleTask} style={styles.btnNewTask}>
+        <Text style={styles.btnNewTaskText}>{task.id ? "e" : "+"}</Text>
+      </Pressable>
+    </View>
   );
 };
 
@@ -80,27 +75,22 @@ const styles = StyleSheet.create({
   container: {
     paddingHorizontal: 10,
     flexDirection: "row",
-    columnGap: 10,
-    justifyContent: "space-between",
-    marginBottom: 30,
+    marginBottom: 20,
   },
 
   input: {
-    borderWidth: 1,
-    paddingLeft: 20,
-    fontSize: 20,
-    borderRadius: 50,
-    width: "80%",
+    flex: 11,
+    borderBottomWidth: 1,
+    borderBottomColor: "grey",
+    paddingVertical: 5,
+    fontSize: 15,
   },
   btnNewTask: {
-    backgroundColor: "green",
+    flex: 1,
     paddingHorizontal: 10,
-    width: 50,
-    height: 50,
-    borderRadius: 100,
-    justifyContent: "center",
-    alignItems: "center",
+    alignItems:"center",
+    justifyContent:'center'
   },
-  btnNewTaskText: { fontWeight: "bold", fontSize: 30, color: "white" },
+  btnNewTaskText: { fontSize: 20 },
 });
 export default Form;

@@ -55,15 +55,16 @@ const App = () => {
 };
 
 const styles = StyleSheet.create({
-  container: {},
   header: {
-    marginVertical: 30,
+    marginVertical: 25,
   },
-  tasksContainer: {},
-  footer: {
-    backgroundColor: "red",
+
+  title: {
+    textAlign: "center",
+    fontSize: 25,
+    color: "#146C94",
+    fontWeight: "bold",
   },
-  title: { textAlign: "center", fontSize: 30, color: "grey" },
 });
 
 export default App;
