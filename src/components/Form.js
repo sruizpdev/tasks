@@ -24,7 +24,6 @@ const Form = ({ task, setTask, tasks, setTasks }) => {
     const storeData = async (value) => {
       try {
         const jsonValue = JSON.stringify(value);
-        console.log("Justo antes de almacenar", jsonValue);
         await AsyncStorage.setItem("tasks", jsonValue);
       } catch (e) {
         console.log(e);

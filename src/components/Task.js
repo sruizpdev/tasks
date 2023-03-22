@@ -38,7 +38,7 @@ const Task = ({ task, setTask, deleteTask }) => {
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
-    marginVertical: 5,
+    marginVertical: 10,
     marginHorizontal: 10,
   },
   checkboxContainer: {

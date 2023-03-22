@@ -45,11 +45,10 @@ const App = () => {
       <View>
         <Form task={task} setTask={setTask} tasks={tasks} setTasks={setTasks} />
       </View>
-      <View style={styles.tasksContainer}>
-        <ScrollView>
-          <Tasks setTask={setTask} tasks={tasks} deleteTask={deleteTask} />
-        </ScrollView>
-      </View>
+
+      <ScrollView>
+        <Tasks setTask={setTask} tasks={tasks} deleteTask={deleteTask} />
+      </ScrollView>
     </SafeAreaView>
   );
 };

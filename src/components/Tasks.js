@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, View, Text, Pressable } from "react-native";
+import { StyleSheet, View } from "react-native";
 import Task from "./Task";
 
 const Tasks = ({ setTask, tasks, deleteTask }) => {
