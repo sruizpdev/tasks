@@ -38,26 +38,31 @@ const App = () => {
   }, [tasks]);
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={styles.container}>
       <View style={styles.header}>
         <Text style={styles.title}>Tareas</Text>
       </View>
-      <View>
+      <View style={styles.form}>
         <Form task={task} setTask={setTask} tasks={tasks} setTasks={setTasks} />
       </View>
 
-      <ScrollView>
+      <View style={styles.tasks}>
         <Tasks setTask={setTask} tasks={tasks} deleteTask={deleteTask} />
-      </ScrollView>
+      </View>
     </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
   header: {
     marginVertical: 25,
   },
-
+  tasks: {
+    flex: 1,
+  },
   title: {
     textAlign: "center",
     fontSize: 25,

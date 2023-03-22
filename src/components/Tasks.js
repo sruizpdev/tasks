@@ -1,22 +1,23 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
 import Task from "./Task";
+import { FlashList } from "@shopify/flash-list";
 
 const Tasks = ({ setTask, tasks, deleteTask }) => {
   return (
-    <View style={styles.container}>
-      {tasks.map((task) => (
+    <FlashList
+      data={tasks}
+      renderItem={({ item }) => (
         <Task
-          key={task.id}
-          task={task}
+          key={item.id}
+          task={item}
           setTask={setTask}
           deleteTask={deleteTask}
         />
-      ))}
-    </View>
+      )}
+      estimatedItemSize={50}
+    />
   );
 };
-const styles = StyleSheet.create({
-  container: {},
-});
+const styles = StyleSheet.create({});
 export default Tasks;
