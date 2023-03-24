@@ -1,11 +1,12 @@
 import React from "react";
-import { StyleSheet, View } from "react-native";
+import { FlatList, StyleSheet, View } from "react-native";
 import Task from "./Task";
-import { FlashList } from "@shopify/flash-list";
+
+
 
 const Tasks = ({ setTask, tasks, deleteTask }) => {
   return (
-    <FlashList
+    <FlatList
       data={tasks}
       renderItem={({ item }) => (
         <Task
@@ -15,7 +16,7 @@ const Tasks = ({ setTask, tasks, deleteTask }) => {
           deleteTask={deleteTask}
         />
       )}
-      estimatedItemSize={50}
+      keyExtractor={item => item.id} 
     />
   );
 };
